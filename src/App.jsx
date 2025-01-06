@@ -1,7 +1,8 @@
 import React from "react";
+import MyDatePicker from "./components/MyDatePicker";
 
 const App = () => {
-  return <div>App</div>;
+  return <MyDatePicker />;
 };
 
 export default App;
