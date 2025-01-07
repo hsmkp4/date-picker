@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Calendar } from "react-modern-calendar-datepicker";
-import "react-modern-calendar-datepicker/lib/DatePicker.css";
 import { getMaxSelectableDate, handleDateInput } from "../utils";
 import { initState } from "../App";
+import "./CustomDatePicker.css";
 
 const MyDatePicker = ({
   selectedDateRange,
