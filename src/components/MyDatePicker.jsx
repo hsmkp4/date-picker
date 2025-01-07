@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Calendar } from "react-modern-calendar-datepicker";
 import "react-modern-calendar-datepicker/lib/DatePicker.css";
-import { getMaxSelectableDate, handleDateInput, objectToDate } from "../utils";
+import { getMaxSelectableDate, handleDateInput } from "../utils";
+import { initState } from "../App";
 
-const initState = {
-  from: null,
-  to: null,
-};
-
-const MyDatePicker = ({ disabledBeforeDate, maxRange }) => {
-  const [selectedDateRange, setSelectedDateRange] = useState(initState);
+const MyDatePicker = ({
+  selectedDateRange,
+  setSelectedDateRange,
+  parentFn,
+  disabledBeforeDate,
+  maxRange,
+}) => {
   const [maxDate, setMaxDate] = useState(undefined);
   const handleChange = (date) => {
     setSelectedDateRange(date);
@@ -40,13 +41,7 @@ const MyDatePicker = ({ disabledBeforeDate, maxRange }) => {
       <div className="flex justify-center items-center gap-14 mt-12">
         <button
           className="border shadow-sm px-12 pt-2 pb-3 rounded-full text-white bg-gray-900 hover:bg-gray-100 hover:text-black"
-          onClick={() =>
-            console.log({
-              selectedDateRange,
-              start: objectToDate(selectedDateRange?.from),
-              end: objectToDate(selectedDateRange?.to),
-            })
-          }
+          onClick={parentFn}
         >
           تایید
         </button>
